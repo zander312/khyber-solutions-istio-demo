@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: useless-account-service
+  labels:
+    app: useless-account-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: useless-account-service
+  template:
+    metadata:
+      labels:
+        app: useless-account-service
+    spec:
+      containers:
+      - name: useless-account-service
+        image: useless-account-service
+        ports:
+        - containerPort: 5000
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: useless-product-service
+  labels:
+    app: useless-product-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: useless-product-service
+  template:
+    metadata:
+      labels:
+        app: useless-product-service
+    spec:
+      containers:
+      - name: useless-product-service
+        image: useless-product-service
+        ports:
+        - containerPort: 5000
+
